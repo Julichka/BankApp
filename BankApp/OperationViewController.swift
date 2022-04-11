@@ -12,9 +12,26 @@ class OperationViewController: UIViewController {
     
     var operation: Operation = Operation.GetBalance
     
+    @IBOutlet weak var operationLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(operation)
+        displayOperationLabel()
+    }
+    
+    func displayOperationLabel() {
+        let operationName: String
+        switch operation {
+        case .GetBalance:
+            operationName = "displaying the balance on a bank deposit"
+        case .WithdrawMoney:
+            operationName = "cash withdrawal from a bank deposit"
+        case .DepositCash:
+            operationName = "replenishment of the bank deposit in cash"
+        case .TopUpCellPhone:
+            operationName = "replenishment of the phone balance from the deposit"
+        }
         
+        operationLabel.text = "Operation: \(operationName)"
     }
 }
