@@ -16,5 +16,5 @@ enum Operation {
 }
 
 class BankAccount : Object {
-    @Persisted var balance: Float = 0
+    @Persisted var balance: Int = 0
 }

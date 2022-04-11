@@ -66,8 +66,53 @@ class OperationViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func onActionButtonClick(_ sender: Any) {
-        
+        let account = localRealm.objects(BankAccount.self)[0]
+        let inputNumber: Int = Int(input.text!) ?? 0
+        switch operation {
+        case .WithdrawMoney:
+            if (account.balance > inputNumber) {
+                try! localRealm.write {
+                    account.balance -= inputNumber
+                }
+                showAlert(message: "Transaction completed")
+            } else {
+                showAlert(message: "Error: Not enough money")
+            }
+            break
+        case .DepositCash:
+            try! localRealm.write {
+                account.balance += inputNumber
+            }
+            showAlert(message: "Transaction completed")
+            break
+        case .TopUpCellPhone:
+            let phoneNumber: Int = Int(phoneInput.text!) ?? 0
+            if (account.balance > inputNumber) {
+                try! localRealm.write {
+                    account.balance -= inputNumber
+                }
+                showAlert(message: "Transaction completed. Phone number \(phoneNumber) balance updated")
+            } else {
+                showAlert(message: "Error: Not enough money")
+            }
+            break
+        case .GetBalance:
+            //Do nothing
+            break
+        }
     }
+    
+    func showAlert(message: String) {
+
+            // create the alert
+            let alert = UIAlertController(title: nil, message: message, preferredStyle: UIAlertController.Style.alert)
+
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+
+            // show the alert
+            self.present(alert, animated: true, completion: nil)
+        }
     
     func hideViews() {
         balanceLabel.isHidden = true
@@ -78,7 +123,10 @@ class OperationViewController: UIViewController, UITextFieldDelegate {
     
     func showBalanceOnBankDeposit() {
         balanceLabel.isHidden = false
-        balanceLabel.text = "Balance: $100"
+        
+        let account = localRealm.objects(BankAccount.self)[0]
+        
+        balanceLabel.text = "Balance: $\(account.balance)"
     }
     
     func showWithdrawMoneyUi() {
