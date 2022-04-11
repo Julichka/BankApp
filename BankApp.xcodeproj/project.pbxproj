@@ -13,6 +13,8 @@
 		32F1F7B32803BA7700ABEB45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32F1F7B12803BA7700ABEB45 /* Main.storyboard */; };
 		32F1F7B52803BA7C00ABEB45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32F1F7B42803BA7C00ABEB45 /* Assets.xcassets */; };
 		32F1F7B82803BA7C00ABEB45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32F1F7B62803BA7C00ABEB45 /* LaunchScreen.storyboard */; };
+		32F1F7C02803C95300ABEB45 /* OperationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F1F7BF2803C95300ABEB45 /* OperationViewController.swift */; };
+		32F1F7C22803CBC000ABEB45 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F1F7C12803CBC000ABEB45 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		32F1F7B42803BA7C00ABEB45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		32F1F7B72803BA7C00ABEB45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		32F1F7B92803BA7C00ABEB45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32F1F7BF2803C95300ABEB45 /* OperationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationViewController.swift; sourceTree = "<group>"; };
+		32F1F7C12803CBC000ABEB45 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				32F1F7B42803BA7C00ABEB45 /* Assets.xcassets */,
 				32F1F7B62803BA7C00ABEB45 /* LaunchScreen.storyboard */,
 				32F1F7B92803BA7C00ABEB45 /* Info.plist */,
+				32F1F7BF2803C95300ABEB45 /* OperationViewController.swift */,
+				32F1F7C12803CBC000ABEB45 /* Model.swift */,
 			);
 			path = BankApp;
 			sourceTree = "<group>";
@@ -137,6 +143,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32F1F7C22803CBC000ABEB45 /* Model.swift in Sources */,
+				32F1F7C02803C95300ABEB45 /* OperationViewController.swift in Sources */,
 				32F1F7B02803BA7700ABEB45 /* ViewController.swift in Sources */,
 				32F1F7AC2803BA7700ABEB45 /* AppDelegate.swift in Sources */,
 				32F1F7AE2803BA7700ABEB45 /* SceneDelegate.swift in Sources */,
