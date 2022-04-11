@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
 class OperationViewController: UIViewController {
     
@@ -18,8 +19,11 @@ class OperationViewController: UIViewController {
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var phoneInput: UITextField!
     
+    let localRealm = try! Realm()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        initRealmForTheFirstStart()
         displayOperationLabel()
         
         switch operation {
@@ -39,6 +43,15 @@ class OperationViewController: UIViewController {
             hideViews()
             showTopUpCellPhoneUi()
             break
+        }
+    }
+    
+    func initRealmForTheFirstStart() {
+        let accountsCount = localRealm.objects(BankAccount.self).count
+        if accountsCount == 0 {
+            try! localRealm.write {
+                localRealm.add(BankAccount())
+            }
         }
     }
     

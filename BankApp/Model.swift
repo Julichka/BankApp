@@ -6,10 +6,15 @@
 //
 
 import Foundation
+import RealmSwift
 
 enum Operation {
     case GetBalance
     case WithdrawMoney
     case DepositCash
     case TopUpCellPhone
+}
+
+class BankAccount : Object {
+    @Persisted var balance: Float = 0
 }
