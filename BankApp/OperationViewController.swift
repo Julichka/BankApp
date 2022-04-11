@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import RealmSwift
 
-class OperationViewController: UIViewController {
+class OperationViewController: UIViewController, UITextFieldDelegate {
     
     var operation: Operation = Operation.GetBalance
     
@@ -25,6 +25,8 @@ class OperationViewController: UIViewController {
         super.viewDidLoad()
         initRealmForTheFirstStart()
         displayOperationLabel()
+        input.delegate = self
+        phoneInput.delegate = self
         
         switch operation {
         case .GetBalance:
@@ -53,6 +55,14 @@ class OperationViewController: UIViewController {
                 localRealm.add(BankAccount())
             }
         }
+    }
+    
+    func textField(_ textField: UITextField,
+      shouldChangeCharactersIn range: NSRange,
+      replacementString string: String) -> Bool {
+      let invalidCharacters =
+        CharacterSet(charactersIn: "0123456789").inverted
+      return (string.rangeOfCharacter(from: invalidCharacters) == nil)
     }
     
     @IBAction func onActionButtonClick(_ sender: Any) {
